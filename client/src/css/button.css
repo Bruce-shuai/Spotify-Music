@@ -1,0 +1,43 @@
+.btn {
+  border: none;
+  background: none;
+  padding: 1em 4em;
+  margin: 1.2em;
+  font-size: 2rem;
+  cursor: pointer;
+  position: relative;
+  background: var(--background-color);
+  --background-color: hsl(100, 20%, 80%);
+  --border-size: 3px;
+  --accent-color: hsl(200, 100%, 50%);
+}
+
+.btn-background-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: var(--accent-color);
+  transform: scalex(0);
+  transform-origin: left;
+  transition: transform 1s ease-in-out;
+}
+
+.btn-background-slide:hover::before,
+.btn-background-slide:focus::before {
+  transform: scalex(1);
+}
+
+.btn-background-slide {
+  /*  这里设置1是怎么回事？ */
+  z-index: 1;
+  transition: color 300ms ease-in-out;
+}
+
+.btn-background-slide:hover,
+.btn-background-slide:focus {
+  color: white;
+}
